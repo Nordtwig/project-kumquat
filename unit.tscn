@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbt4tpe6c1pk"]
+
+[ext_resource type="Script" path="res://unit.gd" id="1_6u56j"]
+[ext_resource type="Texture2D" uid="uid://bcogguc30e3vc" path="res://assets/MiniWorldSprites/Characters/Champions/Arthax.png" id="1_7xjd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k27dr"]
+size = Vector2(15, 9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo52u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.337255, 0.694118, 0.282353, 1)
+border_blend = true
+
+[node name="Unit" type="CharacterBody2D"]
+script = ExtResource("1_6u56j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -4.5)
+shape = SubResource("RectangleShape2D_k27dr")
+
+[node name="Arthax" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_7xjd2")
+hframes = 5
+vframes = 8
+
+[node name="Box" type="Panel" parent="."]
+visible = false
+offset_left = -9.0
+offset_top = -15.0
+offset_right = 8.0
+offset_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qo52u")
