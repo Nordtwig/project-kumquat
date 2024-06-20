@@ -3,6 +3,13 @@ extends Camera2D
 signal area_selected
 signal start_move_selection
 
+@export_category("Camera Controls")
+@export var _speed: float = 20.0
+@export var _zoom_speed: float = 20.0
+@export var _zoom_margin: float = 0.1
+@export var _zoom_min: float = 0.5
+@export var _zoom_max: float = 3.0
+
 var mousePos: Vector2 = Vector2()
 var mousePosGlobal: Vector2 = Vector2()
 
@@ -17,7 +24,13 @@ var isDragging: bool = false
 @onready var box = get_node("../UI/Panel")
 
 
-func _process(_delta) -> void:
+func _process(delta) -> void:
+	var input_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+	var input_y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+
+	position.x = lerp(position.x, position.x + input_x * _speed * zoom.x, _speed * delta)
+	position.y = lerp(position.y, position.y + input_y * _speed * zoom.y, _speed * delta)
+
 	if Input.is_action_just_pressed("LeftClick"):
 		start = mousePosGlobal
 		startV = mousePos
