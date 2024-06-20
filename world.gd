@@ -27,5 +27,7 @@ func on_area_selected(object) -> void:
 	area.append(Vector2(min(start.x, end.x), min(start.y, end.y)))
 	area.append(Vector2(max(start.x, end.x), max(start.y, end.y)))
 	var ut  = get_units_in_area(area)
+	for u in units:
+		u.set_selected(false)
 	for u in ut:
 		u.set_selected(!u.selected)
