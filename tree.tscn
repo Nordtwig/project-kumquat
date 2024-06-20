@@ -7,6 +7,7 @@
 size = Vector2(8, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ib0ra"]
+radius = 14.0357
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_374ie"]
 bg_color = Color(0.301961, 0.647059, 0.796078, 1)
@@ -31,7 +32,7 @@ shape = SubResource("RectangleShape2D_xnog0")
 [node name="ChopArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChopArea"]
-position = Vector2(0, -2)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_ib0ra")
 
 [node name="Timer" type="Timer" parent="."]
@@ -44,3 +45,4 @@ offset_bottom = -18.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_374ie")
 value = 50.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
