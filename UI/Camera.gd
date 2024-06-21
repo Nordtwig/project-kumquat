@@ -10,6 +10,10 @@ signal start_move_selection
 @export var _zoom_min: float = 0.5
 @export var _zoom_max: float = 3.0
 
+var zoom_factor = 1.0
+var zoom_position = Vector2()
+var is_zooming = false
+
 var mousePos: Vector2 = Vector2()
 var mousePosGlobal: Vector2 = Vector2()
 
@@ -30,6 +34,16 @@ func _process(delta) -> void:
 
 	position.x = lerp(position.x, position.x + input_x * _speed * zoom.x, _speed * delta)
 	position.y = lerp(position.y, position.y + input_y * _speed * zoom.y, _speed * delta)
+
+	zoom.x = lerp(zoom.x, zoom.x * zoom_factor, _zoom_speed * delta)
+	zoom.y = lerp(zoom.y, zoom.y * zoom_factor, _zoom_speed * delta)
+
+	zoom.x = clamp(zoom.x, _zoom_min, _zoom_max)
+	zoom.y = clamp(zoom.y, _zoom_min, _zoom_max)
+
+	if not is_zooming:
+		zoom_factor = 1.0
+
 
 	if Input.is_action_just_pressed("LeftClick"):
 		start = mousePosGlobal
@@ -55,6 +69,23 @@ func _process(delta) -> void:
 
 
 func _input(event):
+	if abs(zoom_position.x - get_global_mouse_position().x) > _zoom_margin:
+		zoom_factor = 1.0
+	if abs(zoom_position.y - get_global_mouse_position().y) > _zoom_margin:
+		zoom_factor = 1.0
+	
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			is_zooming = true
+			if event.is_action("WheelDown"):
+				zoom_factor -= 0.01 * _zoom_speed
+				zoom_position = get_global_mouse_position()
+			if event.is_action("WheelUp"):
+				zoom_factor += 0.01 * _zoom_speed
+				zoom_position = get_global_mouse_position()
+	else:
+		is_zooming = false
+
 	if event is InputEventMouse:
 		mousePos = event.position
 		mousePosGlobal = get_global_mouse_position()
