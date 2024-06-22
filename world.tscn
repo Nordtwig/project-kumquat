@@ -7,7 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://x0jugqtqjcsa" path="res://tree.tscn" id="4_0vdcy"]
 
 [node name="world" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ts3lg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -684.0
+offset_top = -344.0
+offset_right = 2248.0
+offset_bottom = 1480.0
+color = Color(0.360784, 0.509804, 0.254902, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -16,6 +24,7 @@ script = ExtResource("1_4ttrc")
 [node name="UI" parent="." instance=ExtResource("3_kcdrj")]
 
 [node name="Units" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Unit" parent="Units" instance=ExtResource("2_03mtw")]
 position = Vector2(-164, 3)
@@ -39,6 +48,7 @@ position = Vector2(-175, 61)
 position = Vector2(-108, 38)
 
 [node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Tree" parent="Objects" instance=ExtResource("4_0vdcy")]
 position = Vector2(-33, 0)
