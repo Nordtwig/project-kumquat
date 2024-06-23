@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq2mlea3xxeg8"]
+[gd_scene load_steps=7 format=3 uid="uid://dq2mlea3xxeg8"]
 
 [ext_resource type="Script" path="res://UI/Camera.gd" id="1_4ttrc"]
 [ext_resource type="Script" path="res://world.gd" id="1_ts3lg"]
 [ext_resource type="PackedScene" uid="uid://dbt4tpe6c1pk" path="res://unit.tscn" id="2_03mtw"]
 [ext_resource type="PackedScene" uid="uid://bgre1dedqfbl6" path="res://UI/ui.tscn" id="3_kcdrj"]
 [ext_resource type="PackedScene" uid="uid://x0jugqtqjcsa" path="res://tree.tscn" id="4_0vdcy"]
+[ext_resource type="PackedScene" uid="uid://cjghvq7d2epbq" path="res://barb_house.tscn" id="6_ggcvv"]
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
@@ -61,3 +62,9 @@ position = Vector2(96, -43)
 
 [node name="Tree4" parent="Objects" instance=ExtResource("4_0vdcy")]
 position = Vector2(5, -88)
+
+[node name="Houses" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BarbHouse" parent="Houses" instance=ExtResource("6_ggcvv")]
+position = Vector2(-69, -87)
