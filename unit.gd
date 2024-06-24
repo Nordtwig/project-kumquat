@@ -12,7 +12,7 @@ var speed: float = 50
 
 
 func _ready() -> void:
-	input_event.connect(on_unit_input_event)
+	add_to_group("units", true)
 
 
 func _input(event):
@@ -22,7 +22,7 @@ func _input(event):
 		follow_cursor = false
 
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	if follow_cursor:
 		if selected:
 			target = get_global_mouse_position()
@@ -39,7 +39,3 @@ func _physics_process(delta) -> void:
 func set_selected(value: bool) -> void:
 	selected = value
 	box.visible = value
-
-
-func on_unit_input_event(viewport, event, shape_idx):
-	pass

@@ -7,7 +7,7 @@ var units: Array[Node]
 func _ready() -> void:
 	get_node("Camera").area_selected.connect(on_area_selected)
 	units = get_tree().get_nodes_in_group("units")
-	print(units)
+	Game.spawn_unit()
 
 
 func get_units_in_area(area: Array) -> Array:

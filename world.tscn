@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://x0jugqtqjcsa" path="res://tree.tscn" id="4_0vdcy"]
 [ext_resource type="PackedScene" uid="uid://cjghvq7d2epbq" path="res://barb_house.tscn" id="6_ggcvv"]
 
-[node name="world" type="Node2D"]
+[node name="World" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ts3lg")
 
