@@ -40,5 +40,3 @@ offset_right = 17.0
 offset_bottom = 2.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_qo52u")
-
-[connection signal="mouse_entered" from="." to="." method="on_barb_house_mouse_entered"]
