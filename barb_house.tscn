@@ -16,6 +16,8 @@ border_color = Color(0.337255, 0.694118, 0.282353, 1)
 border_blend = true
 
 [node name="BarbHouse" type="StaticBody2D"]
+collision_layer = 3
+input_pickable = true
 script = ExtResource("1_qmnpo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -31,8 +33,12 @@ vframes = 5
 frame = 2
 
 [node name="Selected" type="Panel" parent="."]
+visible = false
 offset_left = -17.0
 offset_top = -32.0
 offset_right = 17.0
 offset_bottom = 2.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_qo52u")
+
+[connection signal="mouse_entered" from="." to="." method="on_barb_house_mouse_entered"]

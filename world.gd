@@ -1,3 +1,4 @@
+class_name World
 extends Node2D
 
 
@@ -6,9 +7,12 @@ var units: Array[Node]
 
 func _ready() -> void:
 	get_node("Camera").area_selected.connect(on_area_selected)
-	units = get_tree().get_nodes_in_group("units")
-	Game.spawn_unit()
+	get_units()
 
+
+func get_units() -> void:
+	units = get_tree().get_nodes_in_group("units")
+    
 
 func get_units_in_area(area: Array) -> Array:
 	var u = []

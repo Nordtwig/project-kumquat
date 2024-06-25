@@ -18,6 +18,7 @@ corner_radius_bottom_left = 3
 script = ExtResource("1_tdkxp")
 
 [node name="Panel" type="Panel" parent="."]
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_pm86e")
 
 [node name="Label" type="Label" parent="."]

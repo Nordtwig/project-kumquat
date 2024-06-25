@@ -7,7 +7,6 @@
 script = ExtResource("1_6uduv")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = -1
 offset_left = 344.0
 offset_top = 152.0
 offset_right = 728.0
@@ -17,6 +16,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 16.0
 offset_right = 255.0
@@ -25,6 +25,7 @@ text = "Spawn this unit?"
 
 [node name="Yes" type="Button" parent="Panel"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 56.0
 offset_top = 192.0
 offset_right = 96.0
@@ -33,6 +34,7 @@ text = "Yes"
 
 [node name="No" type="Button" parent="Panel"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 296.0
 offset_top = 192.0
 offset_right = 336.0
